@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UITableViewController {
     
     var pictures = [String]()
+    var sortedPictures = [String]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,22 +31,25 @@ class ViewController: UITableViewController {
                 pictures.append(item)
             }
         }
+        sortedPictures = pictures.sorted()
         
     }
     
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return pictures.count
+        return sortedPictures.count
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Picture", for: indexPath)
-        cell.textLabel?.text = pictures[indexPath.row]
-        cell.imageView?.image = UIImage(named: pictures[indexPath.row])
+        cell.textLabel?.text = sortedPictures[indexPath.row]
+        cell.imageView?.image = UIImage(named: sortedPictures[indexPath.row])
         return cell
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let dc = storyboard?.instantiateViewController(withIdentifier: "Detail") as? DetailViewController {
-            dc.imageName = pictures[indexPath.row]
+            dc.imageName = sortedPictures[indexPath.row]
+            dc.totalNumber = sortedPictures.count
+            dc.currentNumber = indexPath.row + 1
             navigationController?.pushViewController(dc, animated: true)
             
         }

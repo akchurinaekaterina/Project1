@@ -10,15 +10,19 @@ import UIKit
 
 class DetailViewController: UIViewController {
     
-    var imageName: String!
+    var imageName: String?
+    var totalNumber: Int?
+    var currentNumber: Int?
 
     @IBOutlet weak var imageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = imageName
+        if let imageName = imageName, let totalNumber = totalNumber, let currentNumber = currentNumber {
+        title = "Picture \(currentNumber) of \(totalNumber)"
         navigationItem.largeTitleDisplayMode = .never
         imageView.image = UIImage(named: imageName)
+        }
 
         // Do any additional setup after loading the view.
     }
