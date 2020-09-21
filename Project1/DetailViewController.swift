@@ -19,9 +19,10 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         
         if let imageName = imageName, let totalNumber = totalNumber, let currentNumber = currentNumber {
-        title = "Picture \(currentNumber) of \(totalNumber)"
-        navigationItem.largeTitleDisplayMode = .never
-        imageView.image = UIImage(named: imageName)
+            title = "Picture \(currentNumber) of \(totalNumber)"
+            navigationItem.largeTitleDisplayMode = .never
+            navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareTapped))
+            imageView.image = UIImage(named: imageName)
         }
 
         // Do any additional setup after loading the view.
@@ -36,15 +37,17 @@ class DetailViewController: UIViewController {
         navigationController?.hidesBarsOnTap = false
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @objc func shareTapped(){
+        guard let image = imageView.image?.jpegData(compressionQuality: 0.8) else {
+            print ("no image found")
+            return }
+        guard let imageName = imageName else {return}
+        //activity view controller - iOS method of sharing content with other apps and services.
+        let activityVC = UIActivityViewController(activityItems: [image, imageName], applicationActivities: [])
+        activityVC.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
+        present(activityVC, animated: true, completion: nil)
+        
     }
-    */
+
 
 }

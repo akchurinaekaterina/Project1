@@ -17,6 +17,7 @@ class ViewController: UITableViewController {
         super.viewDidLoad()
         title = "Viewer"
         navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .bookmarks, target: self, action: #selector(recoomend))
         // Do any additional setup after loading the view.
         
         //creates a data type that allows to work with file system
@@ -55,6 +56,13 @@ class ViewController: UITableViewController {
         }
         
     }
+    
+    @objc func recoomend(){
+        let text = "Hey! I really like this app, check it out! Here is the link"
+        let recommend = UIActivityViewController(activityItems: [text], applicationActivities: [])
+        present(recommend, animated: true, completion: nil)
+    }
+    
 
 
 }
