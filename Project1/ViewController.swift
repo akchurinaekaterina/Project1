@@ -8,11 +8,12 @@
 
 import UIKit
 
-class ViewController: UITableViewController {
+class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     var pictures = [String]()
     var sortedPictures = [String]()
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Viewer"
@@ -36,32 +37,39 @@ class ViewController: UITableViewController {
         
     }
     
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return sortedPictures.count
     }
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Picture", for: indexPath)
-        cell.textLabel?.text = sortedPictures[indexPath.row]
-        cell.imageView?.image = UIImage(named: sortedPictures[indexPath.row])
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Picture", for: indexPath) as? ImageCell else {fatalError()}
+        cell.imageView.image = UIImage(named: sortedPictures[indexPath.item])
+        
         return cell
     }
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let dc = storyboard?.instantiateViewController(withIdentifier: "Detail") as? DetailViewController {
-            dc.imageName = sortedPictures[indexPath.row]
+            dc.imageName = sortedPictures[indexPath.item]
             dc.totalNumber = sortedPictures.count
-            dc.currentNumber = indexPath.row + 1
+            dc.currentNumber = indexPath.item + 1
             navigationController?.pushViewController(dc, animated: true)
             
         }
-        
     }
+ 
     
     @objc func recoomend(){
         let text = "Hey! I really like this app, check it out! Here is the link"
         let recommend = UIActivityViewController(activityItems: [text], applicationActivities: [])
         present(recommend, animated: true, completion: nil)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
+        {
+           return CGSize(width: 100.0, height: 100.0)
+        }
+    
+    
     
 
 

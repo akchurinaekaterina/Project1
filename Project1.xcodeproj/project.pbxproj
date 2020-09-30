@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC0A7A86252506A3008A2F10 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0A7A85252506A3008A2F10 /* ImageCell.swift */; };
 		BC230A26251251DD00C1376E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC230A25251251DD00C1376E /* AppDelegate.swift */; };
 		BC230A28251251DD00C1376E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC230A27251251DD00C1376E /* SceneDelegate.swift */; };
 		BC230A2A251251DD00C1376E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC230A29251251DD00C1376E /* ViewController.swift */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BC0A7A85252506A3008A2F10 /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
 		BC230A22251251DD00C1376E /* Project1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC230A25251251DD00C1376E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BC230A27251251DD00C1376E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 				BC230A25251251DD00C1376E /* AppDelegate.swift */,
 				BC230A27251251DD00C1376E /* SceneDelegate.swift */,
 				BC230A29251251DD00C1376E /* ViewController.swift */,
+				BC0A7A85252506A3008A2F10 /* ImageCell.swift */,
 				BC230A4E251263B500C1376E /* DetailViewController.swift */,
 				BC230A2B251251DD00C1376E /* Main.storyboard */,
 				BC230A2E251251EC00C1376E /* Assets.xcassets */,
@@ -193,6 +196,7 @@
 				BC230A26251251DD00C1376E /* AppDelegate.swift in Sources */,
 				BC230A28251251DD00C1376E /* SceneDelegate.swift in Sources */,
 				BC230A4F251263B500C1376E /* DetailViewController.swift in Sources */,
+				BC0A7A86252506A3008A2F10 /* ImageCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,6 +341,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HFG94S52NY;
 				INFOPLIST_FILE = Project1/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -354,6 +359,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HFG94S52NY;
 				INFOPLIST_FILE = Project1/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
